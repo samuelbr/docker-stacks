@@ -13,4 +13,4 @@ RUN pip install --quiet --no-cache-dir \
         jupyter-server-proxy && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}" && \
-    conda install -c conda-forge nb_conda
+    conda install -c conda-forge jupyter_conda
