@@ -5,9 +5,12 @@ FROM $BASE_CONTAINER
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
 
+ADD jupyter_notebook_config.py /home/${NB_USER}/.jupyter
+
 # Install Tensorflow
 RUN pip install --quiet --no-cache-dir \
         tensorflow==2.3.0 \ 
         jupyter-server-proxy && \
     fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+    fix-permissions "/home/${NB_USER}" && \
+    conda install -c conda-forge nb_conda
