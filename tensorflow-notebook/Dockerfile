@@ -15,5 +15,5 @@ RUN pip install --quiet --no-cache-dir \
     fix-permissions "/home/${NB_USER}" && \
     conda install -c conda-forge jupyter_conda
 USER root    
-RUN apt install openssh-client
+RUN apt-get update && apt-get install openssh-client
 USER ${NB_USER}
